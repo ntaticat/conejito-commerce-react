@@ -1,8 +1,7 @@
-export const converMonth2Digits = (month) => {
+export const converMonth2Digits = (month: string) => {
   if (month.length < 2) {
     return `0${month}`;
-  }
-  else {
+  } else {
     return `${month}`;
   }
 };

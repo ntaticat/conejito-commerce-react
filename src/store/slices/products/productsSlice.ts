@@ -1,31 +1,31 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICategory } from "../categories/categoriesSlice"
+import { ICategory } from "../categories/categoriesSlice";
 
 export interface IProduct {
-  _id: string,
-  name: string,
-  description: string,
-  stock: number,
-  state: boolean,
-  categories: ICategory[]
+  _id: string;
+  name: string;
+  description: string;
+  stock: number;
+  state: boolean;
+  categories: ICategory[];
 }
 
 export interface ProductsState {
-  productos: IProduct[],
-  producto?: IProduct,
-  loading: boolean,
-  error: string
+  productos: IProduct[];
+  producto?: IProduct;
+  loading: boolean;
+  error: string;
 }
 
 const initialState: ProductsState = {
   productos: [],
   producto: undefined,
   loading: false,
-  error: ""
+  error: "",
 };
 
 export const productsSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState,
   reducers: {
     // Query Productos
@@ -89,8 +89,24 @@ export const productsSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-  }
+  },
 });
 
-export const { getProduct, getProductError, getProductSuccess, getProducts, getProductsError, getProductsSuccess, postProduct, postProductError, postProductPrice, postProductPriceError, postProductPriceSuccess, postProductSuccess, putProduct, putProductError, putProductSuccess } = productsSlice.actions;
+export const {
+  getProduct,
+  getProductError,
+  getProductSuccess,
+  getProducts,
+  getProductsError,
+  getProductsSuccess,
+  postProduct,
+  postProductError,
+  postProductPrice,
+  postProductPriceError,
+  postProductPriceSuccess,
+  postProductSuccess,
+  putProduct,
+  putProductError,
+  putProductSuccess,
+} = productsSlice.actions;
 export default productsSlice;

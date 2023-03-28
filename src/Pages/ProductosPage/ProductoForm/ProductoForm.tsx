@@ -1,52 +1,43 @@
-import React from "react";
-import { Field, Form, Formik } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { ICategory } from "../../../store/slices/categories/categoriesSlice";
+import { Field, Form, Formik } from "formik";
+import React from "react";
+import { useDispatch } from "react-redux";
 
-interface ICrearCategoriaModal {
-  showModal: boolean;
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+interface IProductForm {
+  showForm: boolean;
+  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface ICrearCategoriaFormik {
-  name: string;
-  description: string;
-  state: boolean;
-}
+export const ProductoForm = ({ showForm, setShowForm }: IProductForm) => {
+  const dispatch = useDispatch();
 
-export const CrearCategoriaModal = ({
-  showModal,
-  setShowModal,
-}: ICrearCategoriaModal) => {
-  const initialValues: ICrearCategoriaFormik = {
-    name: "",
-    description: "",
-    state: false,
-  };
-
-  const onClickToggleShowModal = () => {
-    setShowModal(!showModal);
-  };
-
-  const onSubmitCategoria = (data: ICrearCategoriaFormik) => {};
+  const onSubmitProducto = () => {};
 
   return (
     <div
       className={`${
-        showModal ? "visible" : "invisible"
+        showForm ? "visible" : "invisible"
       } z-20 fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50`}
     >
       <div className="max-w-sm bg-white">
         <div className="flex items-stretch justify-between p-3 bg-gray-900 text-white">
-          <h3 className="text-2xl">Añadir Categoria</h3>
-          <button onClick={onClickToggleShowModal}>
+          <h3 className="text-2xl">Añadir Producto</h3>
+          <button onClick={() => setShowForm(!showForm)}>
             <FontAwesomeIcon size="lg" icon={faTimesCircle} />
           </button>
         </div>
         <div className="p-3">
-          <Formik initialValues={initialValues} onSubmit={onSubmitCategoria}>
-            {({ errors, status, touched }) => (
+          <Formik
+            initialValues={{
+              name: "",
+              description: "",
+              stock: 0,
+              state: false,
+            }}
+            onSubmit={onSubmitProducto}
+          >
+            {({ errors, touched }) => (
               <Form>
                 <div className="form-group">
                   <label htmlFor="name">Nombre</label>
@@ -70,6 +61,16 @@ export const CrearCategoriaModal = ({
                     }
                   />
 
+                  <label htmlFor="stock">Stock</label>
+                  <Field
+                    name="stock"
+                    type="number"
+                    className={
+                      "form-control" +
+                      (errors.state && touched.state ? " is-invalid" : "")
+                    }
+                  />
+
                   <div id="state-radio">Estado</div>
                   <div role="group" aria-labelledby="state-radio">
                     <label htmlFor="state">
@@ -79,26 +80,6 @@ export const CrearCategoriaModal = ({
                     <label htmlFor="state">
                       Inactivo
                       <Field name="state" type="radio" value="0" />
-                    </label>
-                  </div>
-
-                  <div id="categoryType-group">Estado</div>
-                  <div role="group" aria-labelledby="categoryType-group">
-                    <label htmlFor="categoryType">
-                      Producto
-                      <Field
-                        name="categoryType"
-                        type="radio"
-                        value="PRODUCT_CATEGORY"
-                      />
-                    </label>
-                    <label htmlFor="categoryType">
-                      Facilitador
-                      <Field
-                        name="categoryType"
-                        type="radio"
-                        value="EASY_CATEGORY"
-                      />
                     </label>
                   </div>
 
