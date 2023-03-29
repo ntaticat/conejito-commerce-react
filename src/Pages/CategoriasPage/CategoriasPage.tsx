@@ -2,20 +2,36 @@ import { useEffect, useState } from "react";
 
 import { PageLayout } from "../../layouts/PageLayout/PageLayout";
 import { useGetCategoriesQuery } from "../../store/apis/conejitoCommerceApi";
+import { ICategory } from "../../store/slices/categories/categoriesSlice";
 import { Categoria } from "./Categoria/Categoria";
 import { CrearCategoriaModal } from "./CrearCategoriaModal/CrearCategoriaModal";
 
 export const CategoriasPage = () => {
-  const {
-    data: categoriesData,
-    isError,
-    isLoading,
-    error,
-  } = useGetCategoriesQuery();
+  // const {
+  //   data: categoriesData,
+  //   isError,
+  //   isLoading,
+  //   error,
+  // } = useGetCategoriesQuery();
 
-  useEffect(() => {
-    // OnInit
-  }, []);
+  const categoriesData: ICategory[] = [
+    {
+      _id: "1",
+      categoryType: "CATEGORIA",
+      description: "Esta es una categoria para mostrar",
+      name: "Categoria #1",
+      products: [],
+      state: true,
+    },
+    {
+      _id: "2",
+      categoryType: "CATEGORIA",
+      description: "Esta es una categoria para mostrar",
+      name: "Categoria #2",
+      products: [],
+      state: true,
+    },
+  ];
 
   const [modal, toggleModal] = useState(false);
 
@@ -31,12 +47,24 @@ export const CategoriasPage = () => {
           {categoriesData?.map((category) => (
             <Categoria key={category._id} categoria={category} />
           ))}
+          {categoriesData?.map((category) => (
+            <Categoria key={category._id} categoria={category} />
+          ))}
+          {categoriesData?.map((category) => (
+            <Categoria key={category._id} categoria={category} />
+          ))}
+          {categoriesData?.map((category) => (
+            <Categoria key={category._id} categoria={category} />
+          ))}
+          {categoriesData?.map((category) => (
+            <Categoria key={category._id} categoria={category} />
+          ))}
         </div>
 
         {/* Panel bottom */}
-        <div className="sticky bottom-0 left-0 z-20 w-full h-auto bg-white border-y-2 border-solid border-gray-900 py-2 px-3 text-center">
+        <div className="sticky bottom-0 left-0 z-20 w-full h-auto bg-blue-300 p-3 text-center shadow-lg shadow-gray-500/50">
           <button
-            className="py-2 px-3 w-full rounded-lg bg-gray-900 text-white"
+            className="py-2 px-3 w-full rounded-lg bg-red-300 text-white"
             onClick={onToggleModal}
           >
             Añadir categoría

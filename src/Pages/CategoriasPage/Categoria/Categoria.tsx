@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ICategory } from "../../../store/slices/categories/categoriesSlice";
 
 interface ICategoriaComponent {
@@ -9,9 +10,11 @@ export const Categoria = ({ categoria }: ICategoriaComponent) => {
   return (
     <div
       key={categoria._id}
-      className="flex flex-nowrap justify-between items-center first:rounded-t-lg last:rounded-b-lg first:border-t-2 border-b-2 border-x-2 border-solid border-gray-900"
+      className="flex flex-nowrap justify-between items-center first:rounded-t-lg last:rounded-b-lg last:border-0 border-b-2 border-solid text-gray-700 border-gray-200 hover:bg-red-300 hover:text-white duration-100"
     >
-      <h2 className="py-2 px-3">{categoria.name}</h2>
+      <Link to={`/categorias/${categoria._id}`}>
+        <h2 className="py-2 px-3 underline">{categoria.name}</h2>
+      </Link>
       <div className="py-2 px-3 text-center text-xs">
         <p className="text-sm">{categoria.products?.length || 0}</p>
         <p>productos</p>

@@ -1,0 +1,4 @@
+.header-bg-gradient {
+  background-color: #ff8585;
+  background-image: linear-gradient(45deg, #ff8585 1%, #7dc9ff 100%);
+}
