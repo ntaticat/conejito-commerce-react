@@ -6,7 +6,7 @@ interface ICategoriaComponent {
   categoria: ICategory;
 }
 
-export const Categoria = ({ categoria }: ICategoriaComponent) => {
+export const CategoriaItem = ({ categoria }: ICategoriaComponent) => {
   return (
     <div
       key={categoria._id}

@@ -10,7 +10,7 @@ interface IPageLayout {
 export const PageLayout = ({ children }: IPageLayout) => {
   return (
     <div className="relative w-full h-screen overflow-auto flex flex-row flex-wrap box-border bg-white text-black">
-      <PageHeader titulo={"ConejitoCommerce"} />
+      <PageHeader />
       {/* Content */}
       <div className="bg-white w-full weird-behav">{children}</div>
     </div>
