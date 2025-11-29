@@ -7,15 +7,18 @@ import App from "./App";
 import "./index.css";
 import { store } from "./store";
 import { conejitoCommerceApi } from "./store/apis/conejitoCommerceApi";
+import { KeycloakProvider } from "./contexts/KeycloakContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <ApiProvider api={conejitoCommerceApi}>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
-    </ApiProvider>
+    <KeycloakProvider>
+      <ApiProvider api={conejitoCommerceApi}>
+        <Provider store={store}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Provider>
+      </ApiProvider>
+    </KeycloakProvider>
   </React.StrictMode>
 );

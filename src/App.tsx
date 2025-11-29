@@ -7,8 +7,24 @@ import { ProductosPage } from "./Pages/ProductosPage/ProductosPage";
 import { MainPage } from "./Pages/MainPage/MainPage";
 import { StartSellingPage } from "./Pages/StartSellingPage/StartSellingPage";
 import { SellingPage } from "./Pages/SellingPage/SellingPage";
+import { useKeycloakAuth } from "./contexts/KeycloakContext";
 
 function App() {
+  const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
+
+  if (isLoading) {
+    return <div>Cargando autenticación...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div>
+        <p>Inicia sesión para ver el contenido.</p>
+        <button onClick={() => keycloak?.login()}>Login con Keycloak</button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Routes>
