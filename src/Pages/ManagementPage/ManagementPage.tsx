@@ -17,7 +17,7 @@ export const ManagementPage = () => {
     {
       title: "Productos",
       text: "Aquí se pueden visualizar los productos registrados",
-      link: "/products",
+      link: "products",
       img: "https://static-bebeautiful-in.unileverservices.com/how-to-choose-the-right-skincare-products-for-your-skin-typemobilehome.jpg",
       imgAlt: "",
       order: 1,
@@ -25,7 +25,7 @@ export const ManagementPage = () => {
     {
       title: "Categorias",
       text: "Aquí se pueden visualizar las categorias de los productos",
-      link: "/categories",
+      link: "categories",
       img: "https://cdn.thewirecutter.com/wp-content/uploads/2018/08/kidslabels-2x1-1070.jpg?auto=webp&quality=75&crop=2:1&width=1024",
       imgAlt: "",
       order: 2,
@@ -33,7 +33,7 @@ export const ManagementPage = () => {
     {
       title: "Ventas",
       text: "Aquí se pueden visualizar las ventas",
-      link: "/sellings",
+      link: "sellings",
       img: "https://d1ih8jugeo2m5m.cloudfront.net/2022/07/el-ecommerce-que-es.jpg",
       imgAlt: "",
       order: 3,
@@ -41,7 +41,7 @@ export const ManagementPage = () => {
     {
       title: "Clientes",
       text: "Aquí se pueden visualizar los clientes",
-      link: "/customers",
+      link: "customers",
       img: "https://www.constantcontact.com/blog/wp-content/uploads/2019/04/Social-Interacting-with-Customers.jpg",
       imgAlt: "",
       order: 4,

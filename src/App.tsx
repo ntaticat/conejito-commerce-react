@@ -8,6 +8,7 @@ import { MainPage } from "./Pages/MainPage/MainPage";
 import { StartSellingPage } from "./Pages/StartSellingPage/StartSellingPage";
 import { SellingPage } from "./Pages/SellingPage/SellingPage";
 import { useKeycloakAuth } from "./contexts/KeycloakContext";
+import { ShiftsPage } from "./Pages/ShiftsPage/ShiftsPage";
 
 function App() {
   const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
@@ -28,11 +29,12 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/categories" element={<CategoriasPage />} />
-        <Route path="/products" element={<ProductosPage />} />
         <Route path="/management" element={<ManagementPage />} />
-        <Route path="/start-selling" element={<StartSellingPage />} />
+        <Route path="/management/categories" element={<CategoriasPage />} />
+        <Route path="/management/products" element={<ProductosPage />} />
         <Route path="/selling" element={<SellingPage />} />
+        <Route path="/shifts" element={<ShiftsPage />} />
+        <Route path="/start-selling" element={<StartSellingPage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
