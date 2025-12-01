@@ -11,6 +11,7 @@ interface KeycloakContextType {
   keycloak: Keycloak | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  logout: (options?: Keycloak.KeycloakLogoutOptions) => void;
 }
 
 const KeycloakContext = createContext<KeycloakContextType | undefined>(
@@ -41,9 +42,20 @@ export const KeycloakProvider = ({ children }: { children: ReactNode }) => {
       });
   }, []);
 
+  const handleLogout = (options?: Keycloak.KeycloakLogoutOptions) => {
+    if (keycloakInstance) {
+      keycloakInstance.logout(options);
+    }
+  };
+
   return (
     <KeycloakContext.Provider
-      value={{ keycloak: keycloakInstance, isAuthenticated, isLoading }}
+      value={{
+        keycloak: keycloakInstance,
+        isAuthenticated,
+        isLoading,
+        logout: handleLogout,
+      }}
     >
       {children}
     </KeycloakContext.Provider>
