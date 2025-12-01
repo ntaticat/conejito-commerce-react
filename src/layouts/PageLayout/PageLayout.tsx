@@ -1,12 +1,12 @@
-import React, { ReactElement, useState } from "react";
-import { Navigation } from "../../components/Navigation/Navigation";
-import { PageHeader } from "../../components/PageHeader/PageHeader";
-import "./PageLayout.css";
-import { ConfigPanel } from "../../components/ConfigPanel/ConfigPanel";
-import { ConfigProvider } from "../../contexts/ConfigContext";
+import React, { ReactElement, useState } from 'react';
+import { Navigation } from '../../components/Navigation/Navigation';
+import { PageHeader } from '../../components/PageHeader/PageHeader';
+import './PageLayout.css';
+import { ConfigPanel } from '../../components/ConfigPanel/ConfigPanel';
+import { ConfigProvider } from '../../contexts/ConfigContext';
 
 interface IPageLayout {
-  children: ReactElement | ReactElement[];
+  children: React.ReactNode;
 }
 
 export const PageLayout = ({ children }: IPageLayout) => {
