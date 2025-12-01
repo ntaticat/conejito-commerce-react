@@ -12,11 +12,20 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
+        name: "Conejito Commerce",
+        short_name: "ConejitoCommerce",
+        start_url: "/",
         icons: [
           {
-            src: "/public/chihiro.png",
+            src: "/chilemorron-192.jpg",
+            sizes: "192x192",
+            type: "image/jpeg",
+            purpose: "any maskable",
+          },
+          {
+            src: "/chilemorron.jpg",
             sizes: "512x512",
-            type: "image/png",
+            type: "image/jpeg",
             purpose: "any maskable",
           },
         ],
