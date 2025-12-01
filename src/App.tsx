@@ -1,14 +1,16 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import { CategoriasPage } from "./Pages/CategoriasPage/CategoriasPage";
-import { ManagementPage } from "./Pages/ManagementPage/ManagementPage";
-import { PageNotFound } from "./Pages/PageNotFound/PageNotFound";
-import { ProductosPage } from "./Pages/ProductosPage/ProductosPage";
-import { MainPage } from "./Pages/MainPage/MainPage";
-import { StartSellingPage } from "./Pages/StartSellingPage/StartSellingPage";
-import { SellingPage } from "./Pages/SellingPage/SellingPage";
-import { useKeycloakAuth } from "./contexts/KeycloakContext";
-import { ShiftsPage } from "./Pages/ShiftsPage/ShiftsPage";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import { CategoriasPage } from './Pages/CategoriasPage/CategoriasPage';
+import { ManagementPage } from './Pages/ManagementPage/ManagementPage';
+import { PageNotFound } from './Pages/PageNotFound/PageNotFound';
+import { ProductsPage } from './Pages/ProductsPage/ProductsPage';
+import { MainPage } from './Pages/MainPage/MainPage';
+import { StartSellingPage } from './Pages/StartSellingPage/StartSellingPage';
+import { SellingPage } from './Pages/SellingPage/SellingPage';
+import { useKeycloakAuth } from './contexts/KeycloakContext';
+import { ShiftsPage } from './Pages/ShiftsPage/ShiftsPage';
+import { NewProductPage } from 'Pages/NewProductPage/NewProductPage';
+import { ProductPage } from 'Pages/ProductPage/ProductPage';
 
 function App() {
   const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
@@ -31,7 +33,9 @@ function App() {
       <Routes>
         <Route path="/management" element={<ManagementPage />} />
         <Route path="/management/categories" element={<CategoriasPage />} />
-        <Route path="/management/products" element={<ProductosPage />} />
+        <Route path="/management/products" element={<ProductsPage />} />
+        <Route path="/management/products/:id" element={<ProductPage />} />
+        <Route path="/management/products/new-product" element={<NewProductPage />} />
         <Route path="/selling" element={<SellingPage />} />
         <Route path="/shifts" element={<ShiftsPage />} />
         <Route path="/start-selling" element={<StartSellingPage />} />

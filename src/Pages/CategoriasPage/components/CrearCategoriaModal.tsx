@@ -1,8 +1,7 @@
-import React from "react";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { ICategory } from "../../../store/slices/categories/categoriesSlice";
+import React from 'react';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface ICrearCategoriaModal {
   showModal: boolean;
@@ -15,13 +14,10 @@ interface ICrearCategoriaFormik {
   state: boolean;
 }
 
-export const CrearCategoriaModal = ({
-  showModal,
-  setShowModal,
-}: ICrearCategoriaModal) => {
+export const CrearCategoriaModal = ({ showModal, setShowModal }: ICrearCategoriaModal) => {
   const initialValues: ICrearCategoriaFormik = {
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     state: false,
   };
 
@@ -34,7 +30,7 @@ export const CrearCategoriaModal = ({
   return (
     <div
       className={`${
-        showModal ? "visible" : "invisible"
+        showModal ? 'visible' : 'invisible'
       } z-50 fixed inset-0 flex items-center justify-center bg-gray-700/75 p-3`}
     >
       <div className="max-w-sm bg-white rounded-lg overflow-hidden">
@@ -55,10 +51,7 @@ export const CrearCategoriaModal = ({
                       placeholder="Categoria #1"
                       name="name"
                       type="text"
-                      className={
-                        "w-full px-3 py-2" +
-                        (errors.name && touched.name ? " " : "")
-                      }
+                      className={'w-full px-3 py-2' + (errors.name && touched.name ? ' ' : '')}
                     />
                   </div>
                   <div className="mb-3">
@@ -68,10 +61,8 @@ export const CrearCategoriaModal = ({
                       name="description"
                       type="textarea"
                       className={
-                        "w-full px-3 py-2" +
-                        (errors.description && touched.description
-                          ? " is-invalid"
-                          : "")
+                        'w-full px-3 py-2' +
+                        (errors.description && touched.description ? ' is-invalid' : '')
                       }
                     />
                   </div>
@@ -79,22 +70,11 @@ export const CrearCategoriaModal = ({
                     <div>Estado</div>
                     <div role="group" aria-labelledby="state-radio">
                       <div className="w-full">
-                        <Field
-                          id="state-active"
-                          name="state"
-                          type="radio"
-                          value="1"
-                          checked
-                        />
+                        <Field id="state-active" name="state" type="radio" value="1" checked />
                         <label htmlFor="state-active">Activo</label>
                       </div>
                       <div className="">
-                        <Field
-                          id="state-inactive"
-                          name="state"
-                          type="radio"
-                          value="0"
-                        />
+                        <Field id="state-inactive" name="state" type="radio" value="0" />
                         <label htmlFor="state-inactive">Inactivo</label>
                       </div>
                     </div>
@@ -102,16 +82,10 @@ export const CrearCategoriaModal = ({
                   <ErrorMessage name="name" component="div" className="mb-3" />
                 </div>
                 <div className="flex justify-between">
-                  <button
-                    type="submit"
-                    className="px-4 py-2 mr-2 text-white bg-red-400 rounded"
-                  >
+                  <button type="submit" className="px-4 py-2 mr-2 text-white bg-red-400 rounded">
                     Añadir
                   </button>
-                  <button
-                    type="reset"
-                    className="px-4 py-2 text-white bg-gray-400 rounded"
-                  >
+                  <button type="reset" className="px-4 py-2 text-white bg-gray-400 rounded">
                     Vaciar
                   </button>
                 </div>
