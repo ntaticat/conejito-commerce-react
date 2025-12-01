@@ -11,6 +11,7 @@ import { useKeycloakAuth } from './contexts/KeycloakContext';
 import { ShiftsPage } from './Pages/ShiftsPage/ShiftsPage';
 import { NewProductPage } from 'Pages/NewProductPage/NewProductPage';
 import { ProductPage } from 'Pages/ProductPage/ProductPage';
+import { NewCategoryPage } from 'Pages/NewCategoryPage/NewCategoryPage';
 
 function App() {
   const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/management" element={<ManagementPage />} />
         <Route path="/management/categories" element={<CategoriasPage />} />
+        <Route path="/management/categories/new-category" element={<NewCategoryPage />} />
         <Route path="/management/products" element={<ProductsPage />} />
         <Route path="/management/products/:id" element={<ProductPage />} />
         <Route path="/management/products/new-product" element={<NewProductPage />} />

@@ -1,42 +1,31 @@
-import { useEffect, useState } from "react";
-
-import { PageLayout } from "../../layouts/PageLayout/PageLayout";
-import { useGetCategoriesQuery } from "../../store/apis/conejitoCommerceApi";
-import { ICategory } from "../../store/slices/categories/categoriesSlice";
-import { CategoriaItem } from "./components/CategoriaItem";
-import { CrearCategoriaModal } from "./components/CrearCategoriaModal";
+import { PageLayout } from '../../layouts/PageLayout/PageLayout';
+import { CategoriaItem } from './components/CategoriaItem';
+import { useNavigate } from 'react-router-dom';
 
 export const CategoriasPage = () => {
-  // const {
-  //   data: CATEGORIES_DATA,
-  //   isError,
-  //   isLoading,
-  //   error,
-  // } = useGetCategoriesQuery();
+  const navigate = useNavigate();
 
-  const CATEGORIES_DATA: ICategory[] = [
+  const CATEGORIES_DATA = [
     {
-      _id: "1",
-      categoryType: "CATEGORIA",
-      description: "Esta es una categoria para mostrar",
-      name: "CategoriaItem #1",
+      _id: '1',
+      categoryType: 'CATEGORIA',
+      description: 'Esta es una categoria para mostrar',
+      name: 'CategoriaItem #1',
       products: [],
       state: true,
     },
     {
-      _id: "2",
-      categoryType: "CATEGORIA",
-      description: "Esta es una categoria para mostrar",
-      name: "CategoriaItem #2",
+      _id: '2',
+      categoryType: 'CATEGORIA',
+      description: 'Esta es una categoria para mostrar',
+      name: 'CategoriaItem #2',
       products: [],
       state: true,
     },
   ];
 
-  const [modal, toggleModal] = useState(false);
-
-  const onToggleModal = () => {
-    modal ? toggleModal(false) : toggleModal(true);
+  const handleRedirectToNewCategory = () => {
+    navigate('new-category');
   };
 
   return (
@@ -53,15 +42,12 @@ export const CategoriasPage = () => {
         <div className="sticky bottom-0 left-0 z-20 w-full h-auto bg-pink-200 p-3 text-center shadow-lg shadow-gray-500/50">
           <button
             className="py-2 px-3 w-full rounded-lg bg-pink-300 text-white"
-            onClick={onToggleModal}
+            onClick={handleRedirectToNewCategory}
           >
             Añadir categoría
           </button>
         </div>
       </div>
-
-      {/* Modal */}
-      <CrearCategoriaModal showModal={modal} setShowModal={toggleModal} />
     </PageLayout>
   );
 };

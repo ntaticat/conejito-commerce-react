@@ -1,54 +1,53 @@
-import React from "react";
-import { IProduct } from "../../store/slices/products/productsSlice";
-import { SwipeProduct } from "./components/SwipeProduct";
+import React from 'react';
+import { SwipeProduct } from './components/SwipeProduct';
 
 export const SellingPage = () => {
-  const PRODUCTS_DATA: IProduct[] = [
+  const PRODUCTS_DATA = [
     {
-      name: "Product #1",
-      _id: "1",
+      name: 'Product #1',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #2",
-      _id: "1",
+      name: 'Product #2',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #3",
-      _id: "1",
+      name: 'Product #3',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #4",
-      _id: "1",
+      name: 'Product #4',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #5",
-      _id: "1",
+      name: 'Product #5',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #6",
-      _id: "1",
+      name: 'Product #6',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },

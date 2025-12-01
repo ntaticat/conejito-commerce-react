@@ -1,57 +1,56 @@
-import { useSprings, animated } from "@react-spring/web";
-import React, { useRef } from "react";
-import { IProduct } from "../../../store/slices/products/productsSlice";
-import { useDrag } from "@use-gesture/react";
-import useMeasure from "react-use-measure";
-import clamp from "lodash.clamp";
+import { useSprings, animated } from '@react-spring/web';
+import React, { useRef } from 'react';
+import { useDrag } from '@use-gesture/react';
+import useMeasure from 'react-use-measure';
+import clamp from 'lodash.clamp';
 
 export const SwipeProduct = () => {
-  const PRODUCTS_DATA: IProduct[] = [
+  const PRODUCTS_DATA = [
     {
-      name: "Product #1",
-      _id: "1",
+      name: 'Product #1',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #2",
-      _id: "1",
+      name: 'Product #2',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #3",
-      _id: "1",
+      name: 'Product #3',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #4",
-      _id: "1",
+      name: 'Product #4',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #5",
-      _id: "1",
+      name: 'Product #5',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
     {
-      name: "Product #6",
-      _id: "1",
+      name: 'Product #6',
+      _id: '1',
       categories: [],
-      description: "",
+      description: '',
       state: true,
       stock: 100,
     },
@@ -64,34 +63,27 @@ export const SwipeProduct = () => {
     (i) => ({
       x: i * width,
       scale: width === 0 ? 0 : 1,
-      display: "block",
+      display: 'block',
     }),
-    [width]
+    [width],
   );
 
-  const bind = useDrag(
-    ({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
-      // When xDir == 1 is because swipe to left
-      // When xDir == -1 is because swipe to right
-      // When xDir == 0 is because no swipe movement
+  const bind = useDrag(({ active, movement: [mx], direction: [xDir], distance, cancel }) => {
+    // When xDir == 1 is because swipe to left
+    // When xDir == -1 is because swipe to right
+    // When xDir == 0 is because no swipe movement
 
-      if (active && distance[0] > width / 5) {
-        index.current = clamp(
-          index.current + (xDir > 0 ? -1 : 1),
-          0,
-          PRODUCTS_DATA.length - 1
-        );
-        cancel();
-      }
-      api.start((i) => {
-        if (i < index.current - 1 || i > index.current + 1)
-          return { display: "none" };
-        const x = (i - index.current) * width + (active ? mx : 0);
-        const scale = active ? 1 - distance[0] / width / 2 : 1;
-        return { x, scale, display: "block" };
-      });
+    if (active && distance[0] > width / 5) {
+      index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, PRODUCTS_DATA.length - 1);
+      cancel();
     }
-  );
+    api.start((i) => {
+      if (i < index.current - 1 || i > index.current + 1) return { display: 'none' };
+      const x = (i - index.current) * width + (active ? mx : 0);
+      const scale = active ? 1 - distance[0] / width / 2 : 1;
+      return { x, scale, display: 'block' };
+    });
+  });
 
   return (
     <div className="h-full flex items-center justify-center">
