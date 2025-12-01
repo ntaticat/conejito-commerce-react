@@ -1,18 +1,27 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { PageHeader } from "../../components/PageHeader/PageHeader";
 import "./PageLayout.css";
+import { ConfigPanel } from "../../components/ConfigPanel/ConfigPanel";
+import { ConfigProvider } from "../../contexts/ConfigContext";
 
 interface IPageLayout {
   children: ReactElement | ReactElement[];
 }
 
 export const PageLayout = ({ children }: IPageLayout) => {
+  const [openConfigPanel, setOpenConfigPanel] = useState(false);
+
   return (
-    <div className="relative w-full h-screen overflow-auto flex flex-row flex-wrap box-border bg-white text-black">
-      <PageHeader />
-      {/* Content */}
-      <div className="bg-white w-full weird-behav">{children}</div>
-    </div>
+    <ConfigProvider>
+      <div className="relative w-full h-screen-dvh flex flex-col bg-white text-black">
+        <PageHeader />
+
+        {/* Content */}
+        <div className="bg-white flex-1 overflow-auto">{children}</div>
+
+        <ConfigPanel />
+      </div>
+    </ConfigProvider>
   );
 };
