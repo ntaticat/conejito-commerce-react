@@ -19,7 +19,7 @@ export default defineConfig({
         start_url: "/",
         icons: [
           {
-            src: "/chilemorron-192.jpg",
+            src: "/chilemorron.jpg",
             sizes: "192x192",
             type: "image/jpeg",
             purpose: "any maskable",
