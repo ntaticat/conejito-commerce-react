@@ -1,7 +1,7 @@
 import { PageLayout } from '../../layouts/PageLayout/PageLayout';
 import { ProductItem } from './ProductItem/ProductItem';
 import { useNavigate } from 'react-router-dom';
-import { useProducts } from 'hooks/useProducts';
+import { useProducts } from '@/application/hooks/useProducts';
 
 export const ProductsPage = () => {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { PageLayout } from 'layouts/PageLayout/PageLayout';
+import { PageLayout } from '@/ui/layouts/PageLayout/PageLayout';
 
 export const ProductPage = () => {
   return (

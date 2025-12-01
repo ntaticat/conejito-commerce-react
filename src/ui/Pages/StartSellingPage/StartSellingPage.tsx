@@ -1,6 +1,6 @@
-import React from "react";
-import { PageLayout } from "../../layouts/PageLayout/PageLayout";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { PageLayout } from '../../layouts/PageLayout/PageLayout';
+import { Link } from 'react-router-dom';
 
 export const StartSellingPage = () => {
   return (

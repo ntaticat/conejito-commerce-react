@@ -1,7 +1,7 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useKeycloakAuth } from "../../contexts/KeycloakContext";
-import { useConfig } from "../../contexts/ConfigContext";
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useKeycloakAuth } from '../../../application/contexts/KeycloakContext';
+import { useConfig } from '../../../application/contexts/ConfigContext';
 
 export const ConfigPanel = () => {
   const { open, close } = useConfig();
@@ -12,14 +12,14 @@ export const ConfigPanel = () => {
   return (
     <div
       className={`fixed inset-0 z-40 transition ${
-        open ? "pointer-events-auto" : "pointer-events-none"
+        open ? 'pointer-events-auto' : 'pointer-events-none'
       }`}
     >
       {/* Fondo oscurecido */}
       <div
         onClick={close}
         className={`absolute inset-0 bg-black/40 transition-opacity ${
-          open ? "opacity-100" : "opacity-0"
+          open ? 'opacity-100' : 'opacity-0'
         }`}
       />
 
@@ -27,7 +27,7 @@ export const ConfigPanel = () => {
       <div
         className={`absolute right-0 top-0 h-full w-72 bg-white shadow-xl 
                     transition-transform p-4 
-                    ${open ? "translate-x-0" : "translate-x-full"}`}
+                    ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">Configuración</h2>
@@ -44,9 +44,7 @@ export const ConfigPanel = () => {
         {/* contenido de config */}
         <div className="space-y-3">
           <p className="text-gray-600">Opciones...</p>
-          <button
-            onClick={() => logout({ redirectUri: window.location.origin })}
-          >
+          <button onClick={() => logout({ redirectUri: window.location.origin })}>
             Cerrar Sesión
           </button>
         </div>

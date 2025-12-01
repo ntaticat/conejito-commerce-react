@@ -3,7 +3,7 @@ import { Navigation } from '../../components/Navigation/Navigation';
 import { PageHeader } from '../../components/PageHeader/PageHeader';
 import './PageLayout.css';
 import { ConfigPanel } from '../../components/ConfigPanel/ConfigPanel';
-import { ConfigProvider } from '../../contexts/ConfigContext';
+import { ConfigProvider } from '../../../application/contexts/ConfigContext';
 
 interface IPageLayout {
   children: React.ReactNode;

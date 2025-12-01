@@ -1,6 +1,6 @@
-import { faBars, faGear, faHamburger } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useConfig } from "../../contexts/ConfigContext";
+import { faBars, faGear, faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useConfig } from '../../../application/contexts/ConfigContext';
 
 export const ConfigButton = () => {
   const { toggle } = useConfig();

@@ -1,27 +1,27 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { useKeycloakAuth } from "../../contexts/KeycloakContext";
-import { ConfigButton } from "../ConfigButton/ConfigButton";
-import { useConfig } from "../../contexts/ConfigContext";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { useKeycloakAuth } from '../../../application/contexts/KeycloakContext';
+import { ConfigButton } from '../ConfigButton/ConfigButton';
+import { useConfig } from '../../../application/contexts/ConfigContext';
 
 export const PageHeader = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const segments = pathname.split("/").filter(Boolean);
+    const segments = pathname.split('/').filter(Boolean);
 
-    const rootModules = ["shifts", "management"];
+    const rootModules = ['shifts', 'management'];
 
     const rootSegment = segments[0];
 
     if (segments.length === 1) {
-      navigate("/");
+      navigate('/');
     } else if (rootModules.includes(rootSegment)) {
       navigate(`/${rootSegment}`);
     } else {
-      navigate("/");
+      navigate('/');
     }
   };
 

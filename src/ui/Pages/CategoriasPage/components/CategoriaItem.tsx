@@ -1,9 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ICategory } from "../../../store/slices/categories/categoriesSlice";
+import { Link } from 'react-router-dom';
 
 interface ICategoriaComponent {
-  categoria: ICategory;
+  categoria: any;
 }
 
 export const CategoriaItem = ({ categoria }: ICategoriaComponent) => {

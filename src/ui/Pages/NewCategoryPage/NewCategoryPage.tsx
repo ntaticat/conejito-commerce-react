@@ -1,24 +1,24 @@
-import { PageLayout } from 'layouts/PageLayout/PageLayout';
-import { ProductForm } from 'Pages/ProductPage/ProductForm/ProductForm';
+import { PageLayout } from '@/ui/layouts/PageLayout/PageLayout';
 import { useNavigate } from 'react-router-dom';
+import { CategoryForm } from './CategoryForm/CategoryForm';
 
-export const NewProductPage = () => {
+export const NewCategoryPage = () => {
   const navigate = useNavigate();
 
-  const goToProducts = () => {
-    navigate('/management/products');
+  const goToCategories = () => {
+    navigate('/management/categories');
   };
 
   return (
     <PageLayout>
       <div className="p-4 h-full flex flex-col justify-between">
         <div className="">
-          <ProductForm />
+          <CategoryForm />
         </div>
         <div className="">
           <button
             className="py-2 px-3 w-full rounded-lg bg-pink-300 text-white"
-            onClick={goToProducts}
+            onClick={goToCategories}
           >
             Regresar
           </button>

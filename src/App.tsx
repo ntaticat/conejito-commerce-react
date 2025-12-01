@@ -1,17 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import { CategoriasPage } from './Pages/CategoriasPage/CategoriasPage';
-import { ManagementPage } from './Pages/ManagementPage/ManagementPage';
-import { PageNotFound } from './Pages/PageNotFound/PageNotFound';
-import { ProductsPage } from './Pages/ProductsPage/ProductsPage';
-import { MainPage } from './Pages/MainPage/MainPage';
-import { StartSellingPage } from './Pages/StartSellingPage/StartSellingPage';
-import { SellingPage } from './Pages/SellingPage/SellingPage';
-import { useKeycloakAuth } from './contexts/KeycloakContext';
-import { ShiftsPage } from './Pages/ShiftsPage/ShiftsPage';
-import { NewProductPage } from 'Pages/NewProductPage/NewProductPage';
-import { ProductPage } from 'Pages/ProductPage/ProductPage';
-import { NewCategoryPage } from 'Pages/NewCategoryPage/NewCategoryPage';
+import { CategoriasPage } from './ui/Pages/CategoriasPage/CategoriasPage';
+import { ManagementPage } from './ui/Pages/ManagementPage/ManagementPage';
+import { PageNotFound } from './ui/Pages/PageNotFound/PageNotFound';
+import { ProductsPage } from './ui/Pages/ProductsPage/ProductsPage';
+import { MainPage } from './ui/Pages/MainPage/MainPage';
+import { StartSellingPage } from './ui/Pages/StartSellingPage/StartSellingPage';
+import { SellingPage } from './ui/Pages/SellingPage/SellingPage';
+import { useKeycloakAuth } from './application/contexts/KeycloakContext';
+import { ShiftsPage } from './ui/Pages/ShiftsPage/ShiftsPage';
+import { NewProductPage } from '@/ui/Pages/NewProductPage/NewProductPage';
+import { ProductPage } from '@/ui/Pages/ProductPage/ProductPage';
+import { NewCategoryPage } from '@/ui/Pages/NewCategoryPage/NewCategoryPage';
 
 function App() {
   const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
