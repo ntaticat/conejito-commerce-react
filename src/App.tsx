@@ -11,21 +11,17 @@ import { ShiftsPage } from './ui/Pages/ShiftsPage/ShiftsPage';
 import { NewProductPage } from '@/ui/Pages/NewProductPage/NewProductPage';
 import { ProductPage } from '@/ui/Pages/ProductPage/ProductPage';
 import { NewCategoryPage } from '@/ui/Pages/NewCategoryPage/NewCategoryPage';
+import { AccessDenied } from '@/ui/Pages/AccessDenied/AccessDenied';
 
 function App() {
-  const { keycloak, isAuthenticated, isLoading } = useKeycloakAuth();
+  const { isAuthenticated, isLoading } = useKeycloakAuth();
 
   if (isLoading) {
     return <div>Cargando autenticación...</div>;
   }
 
   if (!isAuthenticated) {
-    return (
-      <div>
-        <p>Inicia sesión para ver el contenido.</p>
-        <button onClick={() => keycloak?.login()}>Login con Keycloak</button>
-      </div>
-    );
+    return <AccessDenied></AccessDenied>;
   }
 
   return (
